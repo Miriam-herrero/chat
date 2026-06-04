@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Asistente digital de Miriam Herrero Sánchez para orientación, servicios exclusivos y reservas."
+    />
+    <title>Asistente Miriam Herrero Sánchez</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="https://www.miriamherrerosanchez.com/" aria-label="Volver a la web de Miriam">
+          <img src="./logo-cropped.jpeg" alt="Miriam Herrero Sánchez" />
+        </a>
+        <nav class="main-nav" aria-label="Navegación principal">
+          <a href="#chat">Chat</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#calendario">Calendario</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="page-title">
+          <p class="eyebrow">Carta de servicios exclusiva</p>
+          <h1 id="page-title">Bienestar, rituales de autor y tratamientos personalizados.</h1>
+          <p>
+            Una experiencia premium pensada para convertir el cuidado personal en un momento de
+            privacidad, calma y atención a medida. El asistente puede ayudarte a elegir el servicio
+            que mejor encaja contigo y facilitar el siguiente paso para reservar.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-link" href="#chat">Consultar al asistente</a>
+            <a class="secondary-link" href="https://www.miriamherrerosanchez.com/">Volver a la Web</a>
+          </div>
+        </section>
+
+        <section class="chat-section" id="chat" aria-labelledby="chat-title">
+          <div class="section-heading">
+            <p class="eyebrow">Asistente digital</p>
+            <h2 id="chat-title">Orientación para elegir y reservar</h2>
+          </div>
+
+          <div class="chat-layout">
+            <section class="chat-card" aria-label="Ventana de chat">
+              <div class="chat-status">
+                <span class="status-dot" aria-hidden="true"></span>
+                <span>Modo boceto: respuestas simuladas</span>
+              </div>
+              <div class="messages" id="messages" aria-live="polite"></div>
+              <form class="chat-form" id="chat-form">
+                <label class="sr-only" for="message-input">Escribe tu mensaje</label>
+                <textarea
+                  id="message-input"
+                  name="message"
+                  rows="1"
+                  placeholder="Cuéntame qué necesitas y te oriento..."
+                  autocomplete="off"
+                ></textarea>
+                <button type="submit">Enviar</button>
+              </form>
+            </section>
+          </div>
+        </section>
+
+        <section class="services-section" id="servicios" aria-labelledby="services-title">
+          <div class="section-heading compact">
+            <p class="eyebrow">Servicios exclusivos</p>
+            <h2 id="services-title">Una carta para cada necesidad del momento</h2>
+          </div>
+
+          <div class="service-grid" aria-label="Familias de servicios">
+            <button class="service-card" type="button" data-service-tab="faciales">
+              <span>01</span>
+              <h3>Faciales exclusivos</h3>
+              <p>A Medida, Mar Profundo Purificante y Anti-Edad Milagro Facial.</p>
+            </button>
+            <button class="service-card" type="button" data-service-tab="corporal">
+              <span>02</span>
+              <h3>Cuidado corporal</h3>
+              <p>Exfoliación revitalizante, espirulina detox y arcilla rosa hidratante.</p>
+            </button>
+            <button class="service-card" type="button" data-service-tab="masajes">
+              <span>03</span>
+              <h3>Masajes manuales</h3>
+              <p>Tejido profundo, antiestrés, aromaterapia, maderoterapia y reflexología podal.</p>
+            </button>
+            <button class="service-card" type="button" data-service-tab="rituales">
+              <span>04</span>
+              <h3>Rituales del mundo</h3>
+              <p>Éxtasis de Cacao, Cura de Vinoterapia y masaje con Piedras Calientes.</p>
+            </button>
+            <button class="service-card featured" type="button" data-service-tab="autor">
+              <span>05</span>
+              <h3>Rituales de autor</h3>
+              <p>Para cómo te sientes, Para cómo te ves y Para cómo te transformas.</p>
+            </button>
+          </div>
+
+          <div class="service-modal" id="service-modal" aria-hidden="true">
+            <div class="service-modal-backdrop" data-close-modal></div>
+            <section
+              class="service-modal-dialog"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="service-modal-title"
+            >
+              <button class="modal-close" type="button" aria-label="Cerrar servicios" data-close-modal>
+                ×
+              </button>
+              <div class="service-detail" id="service-detail" aria-live="polite"></div>
+            </section>
+          </div>
+        </section>
+
+        <section class="calendar-section" id="calendario" aria-labelledby="calendar-title">
+          <div class="section-heading compact">
+            <p class="eyebrow">Agenda personalizada</p>
+            <h2 id="calendar-title">Reserva una cita disponible</h2>
+          </div>
+
+          <div class="calendar-shell">
+            <div class="calendar-main">
+              <div class="calendar-toolbar">
+                <button class="calendar-nav-button" type="button" id="prev-month" aria-label="Mes anterior">‹</button>
+                <h3 id="calendar-month"></h3>
+                <button class="calendar-nav-button" type="button" id="next-month" aria-label="Mes siguiente">›</button>
+              </div>
+              <div class="calendar-weekdays" aria-hidden="true">
+                <span>Lun</span>
+                <span>Mar</span>
+                <span>Mié</span>
+                <span>Jue</span>
+                <span>Vie</span>
+                <span>Sáb</span>
+                <span>Dom</span>
+              </div>
+              <div class="calendar-grid" id="calendar-grid" aria-label="Calendario de disponibilidad"></div>
+            </div>
+
+            <aside class="day-panel" aria-live="polite">
+              <p class="eyebrow">Día seleccionado</p>
+              <h3 id="selected-date-title">Selecciona una fecha</h3>
+              <p id="selected-date-copy">
+                Los días con disponibilidad aparecen marcados en dorado. Elige un hueco para completar la reserva.
+              </p>
+              <div class="slot-list" id="slot-list"></div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="reservation-band" id="reserva">
+          <p class="eyebrow">Información y reservas</p>
+          <h2>Servicio con cita previa, a domicilio o en gabinetes especializados.</h2>
+          <p>
+            Disponibilidad sujeta a ubicación y agenda. Para confirmar opciones, condiciones del
+            servicio y próximos talleres, contacta directamente por WhatsApp.
+          </p>
+          <div class="reservation-actions">
+            <a class="primary-link" href="https://wa.me/34646410037">WhatsApp +34 646 410 037</a>
+            <a class="secondary-link" href="https://www.miriamherrerosanchez.com/terapias">Ver terapias</a>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <button class="admin-entry" type="button" id="admin-entry" aria-label="Acceso Miriam">✦</button>
+
+    <div class="booking-modal" id="booking-modal" aria-hidden="true">
+      <div class="service-modal-backdrop" data-close-booking></div>
+      <section class="booking-dialog" role="dialog" aria-modal="true" aria-labelledby="booking-title">
+        <button class="modal-close" type="button" aria-label="Cerrar reserva" data-close-booking>×</button>
+        <p class="eyebrow">Solicitud de reserva</p>
+        <h2 id="booking-title">Completa tus datos</h2>
+        <p id="booking-summary"></p>
+        <form class="booking-form" id="booking-form">
+          <label>
+            Servicio
+            <select id="booking-service" required></select>
+          </label>
+          <label>
+            Nombre
+            <input id="booking-name" type="text" autocomplete="name" required />
+          </label>
+          <label>
+            Teléfono
+            <input id="booking-phone" type="tel" autocomplete="tel" required />
+          </label>
+          <label>
+            Email
+            <input id="booking-email" type="email" autocomplete="email" required />
+          </label>
+          <label>
+            Comentarios
+            <textarea id="booking-comments" rows="4"></textarea>
+          </label>
+          <button class="primary-link" type="submit">Confirmar reserva</button>
+        </form>
+      </section>
+    </div>
+
+    <div class="admin-modal" id="admin-modal" aria-hidden="true">
+      <div class="service-modal-backdrop" data-close-admin></div>
+      <section class="admin-dialog" role="dialog" aria-modal="true" aria-labelledby="admin-title">
+        <button class="modal-close" type="button" aria-label="Cerrar panel Miriam" data-close-admin>×</button>
+        <div id="pin-panel">
+          <p class="eyebrow">Acceso Miriam</p>
+          <h2 id="admin-title">Panel privado</h2>
+          <form class="pin-form" id="pin-form">
+            <label>
+              PIN de acceso
+              <input id="admin-pin" type="password" inputmode="numeric" autocomplete="off" required />
+            </label>
+            <button class="primary-link" type="submit">Entrar</button>
+            <p class="form-note" id="pin-error" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <div class="admin-panel" id="admin-panel" hidden>
+          <div class="admin-heading">
+            <div>
+              <p class="eyebrow">Modo Miriam</p>
+              <h2>Gestionar calendario</h2>
+            </div>
+            <button class="secondary-link" type="button" id="admin-logout">Salir</button>
+          </div>
+
+          <div class="admin-grid">
+            <form class="admin-card" id="availability-form">
+              <h3>Modificar horarios</h3>
+              <label>
+                Fecha
+                <input id="availability-date" type="date" required />
+              </label>
+              <div class="availability-editor" id="availability-editor"></div>
+              <p class="form-note">
+                Marca los huecos disponibles para ese día. Si hay una cita ya reservada, ese hueco
+                queda protegido y no se puede bloquear desde aquí.
+              </p>
+              <div class="admin-actions">
+                <button class="primary-link" type="submit">Guardar disponibilidad</button>
+                <button class="secondary-link" type="button" id="morning-only">Solo mañana</button>
+                <button class="secondary-link" type="button" id="clear-day">Bloquear día</button>
+              </div>
+            </form>
+
+            <form class="admin-card" id="manual-appointment-form">
+              <h3>Añadir cita telefónica</h3>
+              <label>
+                Fecha
+                <input id="manual-date" type="date" required />
+              </label>
+              <label>
+                Hora
+                <input id="manual-time" type="time" required />
+              </label>
+              <label>
+                Nombre
+                <input id="manual-name" type="text" required />
+              </label>
+              <label>
+                Teléfono
+                <input id="manual-phone" type="tel" required />
+              </label>
+              <label>
+                Email
+                <input id="manual-email" type="email" />
+              </label>
+              <label>
+                Servicio
+                <select id="manual-service"></select>
+              </label>
+              <button class="primary-link" type="submit">Añadir cita</button>
+            </form>
+          </div>
+
+          <div class="admin-card appointments-card">
+            <h3>Citas agendadas</h3>
+            <div class="admin-appointments" id="admin-appointments"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
