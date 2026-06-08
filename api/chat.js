@@ -6,11 +6,12 @@ const allowedOrigins = [
 
 const servicesContext = `
 Servicios de Miriam Herrero Sánchez:
-- Faciales exclusivos: A Medida, Mar Profundo Purificante, Anti-Edad Milagro Facial.
-- Cuidado corporal y envolturas: Exfoliación Revitalizante, Envoltura Desintoxicante de Espirulina, Envoltura Hidratante de Arcilla Rosa.
-- Masajes manuales: Tejido Profundo, Antiestrés Recuperador, Holístico y Aromaterapia, Escultural con Maderoterapia, Reflexología Podal Holística.
-- Rituales especiales del mundo: Éxtasis de Cacao, Cura de Vinoterapia, Masaje con Piedras Calientes.
-- Rituales de autor: Para cómo te sientes, Para cómo te ves, Para cómo te transformas.
+- Faciales exclusivos: Facial Personalizado, Mar Profundo Purificante, Lifting Facial Manual, Facial Reafirmante Premium.
+- Masajes y terapias manuales: Masaje Estético, Antiestrés Recuperador, Drenaje Linfático, Reflexología Podal Holística, Holístico con Aromaterapia, Tejido Profundo, Quiromasaje, Escultural con Maderoterapia, Osteopatía Bioenergética Celular.
+- Tratamientos corporales y envolturas: Exfoliación Revitalizante, Envoltura Desintoxicante de Espirulina, Envoltura Hidratante de Arcilla Rosa, Tratamiento Corporal Personalizado.
+- Belleza de la mirada: Lifting de Pestañas.
+- Rituales del mundo: Masaje con Piedras Calientes, Éxtasis de Cacao, Cura de Vinoterapia.
+- Rituales de autor: Para Cómo Te Sientes, Para Cómo Te Ves, Para Cómo Te Transformas.
 - Reservas: WhatsApp +34 646 410 037.
 `;
 

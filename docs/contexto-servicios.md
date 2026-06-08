@@ -1,71 +1,62 @@
 # Contexto de servicios de Miriam Herrero Sánchez
 
-Fuente principal: `Carta definitiva.pdf`
+Fuente principal: `Carta Pro Max.pdf`
 
 ## Posicionamiento
 
-Carta de servicios exclusiva: bienestar, rituales de autor y tratamientos personalizados en un
+Carta de tratamientos exclusiva: bienestar, rituales de autor y tratamientos personalizados en un
 entorno de privacidad, calma y atención a medida.
 
-La experiencia se presenta como premium, discreta, sensorial y personalizada. Los tratamientos
-pueden realizarse a domicilio o en gabinetes especializados, siempre sujetos a disponibilidad y
-ubicación.
+## Faciales exclusivos
+
+- Facial Personalizado: 50 min, 50 EUR.
+- Mar Profundo Purificante: 80 min, 65 EUR.
+- Lifting Facial Manual: 80 min, 90 EUR.
+- Facial Reafirmante Premium: 50 min, 60 EUR.
+
+## Masajes y terapias manuales
+
+- Masaje Estético: 25 min, 30 EUR.
+- Masaje Antiestrés Recuperador: 50 min, 45 EUR.
+- Drenaje Linfático: 50 min, 50 EUR.
+- Reflexología Podal Holística: 50 min, 50 EUR.
+- Masaje Holístico con Aromaterapia: 50 min, 50 EUR.
+- Masaje de Tejido Profundo: 50 min, 55 EUR.
+- Quiromasaje: 50 min, 60 EUR.
+- Masaje Escultural con Maderoterapia: 50 min, 60 EUR.
+- Osteopatía Bioenergética Celular: 80 min, 90 EUR.
+
+## Tratamientos corporales y envolturas
+
+- Exfoliación Revitalizante con Sales y Aceites: 50 min, 45 EUR.
+- Envoltura Desintoxicante de Espirulina: 80 min, 80 EUR.
+- Envoltura Hidratante de Arcilla Rosa: 80 min, 80 EUR.
+- Tratamiento Corporal Personalizado: 80 min, 120 EUR.
+
+## Belleza de la mirada
+
+- Lifting de Pestañas: 80 min, 50 EUR.
+
+## Rituales del mundo
+
+- Masaje con Piedras Calientes: 80 min, 75 EUR.
+- Éxtasis de Cacao: 80 min, 80 EUR.
+- Cura de Vinoterapia: 80 min, 80 EUR.
+
+## Rituales de autor Miriam Herrero
+
+- Para Cómo Te Sientes: 110 min, 90 EUR.
+- Para Cómo Te Ves: 110 min, 95 EUR.
+- Para Cómo Te Transformas: 110 min, 100 EUR.
 
 ## Rol del asistente
 
 El asistente digital acoge con empatía, tono humano y neutral en cuanto a género. Ayuda a
-identificar qué servicio, terapia, taller o recurso puede encajar con la necesidad de la persona
-usuaria, y deriva siempre hacia contacto o reserva para facilitar la contratación.
+identificar qué tratamiento, terapia, taller o recurso puede encajar con la necesidad de la persona
+usuaria y deriva hacia contacto o reserva.
 
 No hace diagnósticos médicos ni psicológicos, no promete resultados y no sustituye una sesión
 profesional.
-
-## Faciales exclusivos
-
-- A Medida: 55 min, 50 EUR.
-  Tratamiento personalizado según necesidades de la piel, con diagnóstico previo, sérums activos,
-  mascarillas y complejos aromáticos.
-- Mar Profundo Purificante: 1 h 15 min, 65 EUR.
-  Vapor, extracción manual, drenaje linfático facial y mascarilla desintoxicante.
-- Anti-Edad Milagro Facial: 55 min, 60 EUR.
-  Facial reafirmante orientado a firmeza, luminosidad y calidad de la piel mediante masaje manual
-  reafirmante y maderoterapia facial sutil.
-
-## Cuidado corporal y envolturas
-
-- Exfoliación Revitalizante con Sales y Aceites: 45 min, 45 EUR.
-- Envoltura Desintoxicante de Espirulina: 55 min, 55 EUR.
-- Envoltura Hidratante de Arcilla Rosa: 55 min, 55 EUR.
-
-## Masajes manuales
-
-- Masaje de Tejido Profundo: 60 min, 55 EUR.
-- Masaje Antiestrés Recuperador: 45 min, 45 EUR.
-- Masaje Holístico y Aromaterapia: 60 min, 50 EUR.
-- Masaje Escultural con Maderoterapia: 60 min, 60 EUR.
-- Reflexología Podal Holística: 45 min, 40 EUR.
-
-## Rituales especiales del mundo
-
-- Éxtasis de Cacao: 1 h 25 min, 80 EUR.
-- Cura de Vinoterapia: 1 h 25 min, 80 EUR.
-- Masaje con Piedras Calientes: 1 h 15 min, 75 EUR.
-
-## Rituales de autor Miriam Herrero
-
-- Para cómo te sientes: 1 h 40 min, 90 EUR.
-  Ritual relajante para tensión acumulada, sistema nervioso y sensación de equilibrio. Incluye
-  liberación del pericardio, terapia craneosacral, quiromasaje relajante profundo, peeling facial
-  suave y masaje facial y cervical. Personalización: masaje drenante o sensitivo envolvente.
-- Para cómo te ves: 1 h 40 min, 95 EUR.
-  Tratamiento integral de estética avanzada manual y bienestar interno. Incluye higiene facial
-  profunda, vapor, peeling, sérum, mascarilla personalizada, tratamiento específico, contorno de
-  ojos, masaje reafirmante y terapia craneosacral. Opcional: maderoterapia, drenaje linfático
-  manual o masaje circulatorio.
-- Para cómo te transformas: 1 h 40 min, 100 EUR.
-  Acompañamiento terapéutico profundo para procesos internos y cambios desde el cuerpo. Incluye
-  liberación del pericardio, terapia craneosacral, reflexología y quiromasaje terapéutico. Enfoques:
-  acompañamiento emocional, técnica metamórfica, piedras o bambú, o drenaje linfático.
 
 ## Reservas
 

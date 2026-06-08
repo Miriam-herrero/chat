@@ -70,96 +70,138 @@ let chatHistory = [];
 const serviceCatalog = {
   faciales: {
     title: "Faciales exclusivos",
-    intro: "Tratamientos personalizados para cuidar la piel desde el diagnóstico, la técnica manual y la estética sensorial.",
+    intro: "Tratamientos faciales personalizados para restaurar el equilibrio, la firmeza y la luminosidad natural de la piel.",
     treatments: [
       {
-        name: "A Medida",
-        duration: "55 min",
+        name: "Facial Personalizado",
+        duration: "50 min",
         price: "50 EUR",
         description:
-          "Tratamiento diseñado según las necesidades de la piel, con diagnóstico previo, sérums activos, mascarillas y complejos aromáticos. Una propuesta personalizada con enfoque equilibrante o hidratante.",
+          "Tratamiento diseñado tras un diagnóstico previo de la piel. Combina activos específicos, mascarillas y aromaterapia para restaurar el equilibrio y la luminosidad natural.",
       },
       {
         name: "Mar Profundo Purificante",
-        duration: "1 h 15 min",
+        duration: "80 min",
         price: "65 EUR",
         description:
-          "Ideal para pieles que necesitan respirar. Combina preparación con vapor, extracción manual, drenaje linfático facial y mascarilla desintoxicante.",
+          "Higiene facial profunda con vapor, extracción manual, drenaje linfático facial y mascarilla purificante para una piel limpia, fresca y revitalizada.",
       },
       {
-        name: "Anti-Edad Milagro Facial",
-        duration: "55 min",
+        name: "Lifting Facial Manual",
+        duration: "80 min",
+        price: "90 EUR",
+        description:
+          "Tratamiento reafirmante que combina higiene facial, masaje lifting manual y técnicas de estimulación para mejorar la firmeza y luminosidad de la piel.",
+      },
+      {
+        name: "Facial Reafirmante Premium",
+        duration: "50 min",
         price: "60 EUR",
         description:
-          "Facial reafirmante orientado a mejorar firmeza, luminosidad y calidad de la piel mediante masaje manual reafirmante y maderoterapia facial sutil.",
+          "Facial antiedad orientado a mejorar el tono, la elasticidad y la calidad de la piel mediante masaje reafirmante y maderoterapia facial.",
       },
     ],
   },
   corporal: {
-    title: "Cuidado corporal y envolturas",
-    intro: "Rituales corporales para renovar, nutrir y acompañar el descanso del cuerpo.",
+    title: "Tratamientos corporales y envolturas",
+    intro: "Tratamientos para renovar, nutrir y adaptar el cuidado corporal a las necesidades de cada persona.",
     treatments: [
       {
         name: "Exfoliación Revitalizante con Sales y Aceites",
-        duration: "45 min",
+        duration: "50 min",
         price: "45 EUR",
         description:
-          "Aceites aromáticos y sales naturales para renovar la piel, eliminar células muertas y dejar una textura suave, luminosa y nutrida.",
+          "Exfoliación corporal con sales naturales y aceites aromáticos que renueva la piel y aporta suavidad y luminosidad.",
       },
       {
         name: "Envoltura Desintoxicante de Espirulina",
-        duration: "55 min",
-        price: "55 EUR",
+        duration: "80 min",
+        price: "80 EUR",
         description:
-          "Tratamiento energizante con exfoliación suave y envoltura de algas marinas, ideal para complementar un reseteo corporal.",
+          "Ritual corporal que combina exfoliación y envoltura de algas para revitalizar la piel y aportar sensación de ligereza.",
       },
       {
         name: "Envoltura Hidratante de Arcilla Rosa",
-        duration: "55 min",
-        price: "55 EUR",
+        duration: "80 min",
+        price: "80 EUR",
         description:
-          "Ritual corporal ultrahidratante para pieles secas o cansadas. Incluye exfoliación, masaje craneal y aplicación de arcilla rosa rica en nutrientes.",
+          "Tratamiento nutritivo diseñado para restaurar la hidratación y elasticidad de la piel.",
+      },
+      {
+        name: "Tratamiento Corporal Personalizado",
+        duration: "80 min",
+        price: "120 EUR",
+        description:
+          "Programa específico con objetivos reafirmantes, circulatorios, remodelantes o desintoxicantes adaptado a las necesidades de cada persona.",
       },
     ],
   },
   masajes: {
-    title: "Masajes manuales",
-    intro: "Trabajo manual para liberar tensión, favorecer descanso y cuidar el cuerpo desde distintas técnicas.",
+    title: "Masajes y terapias manuales",
+    intro: "Técnicas manuales y terapias integrativas para aliviar tensiones, favorecer la circulación y recuperar el bienestar corporal.",
     treatments: [
       {
-        name: "Masaje de Tejido Profundo",
-        duration: "60 min",
-        price: "55 EUR",
+        name: "Masaje Estético",
+        duration: "25 min",
+        price: "30 EUR",
         description:
-          "Trabajo manual enfocado en capas profundas del tejido muscular para liberar tensión acumulada, descontracturar y revitalizar el cuerpo.",
+          "Tratamiento localizado destinado a estimular la circulación, mejorar la calidad de la piel y complementar programas corporales.",
       },
       {
         name: "Masaje Antiestrés Recuperador",
-        duration: "45 min",
+        duration: "50 min",
         price: "45 EUR",
         description:
-          "Sesión diseñada para aliviar tensiones con eficacia y favorecer el descanso tras jornadas intensas, carga mental o cansancio acumulado.",
+          "Masaje relajante diseñado para aliviar tensiones físicas y mentales, favoreciendo el descanso profundo.",
       },
       {
-        name: "Masaje Holístico y Aromaterapia",
-        duration: "60 min",
+        name: "Drenaje Linfático",
+        duration: "50 min",
         price: "50 EUR",
         description:
-          "Masaje corporal relajante combinado con aceites esenciales puros para reducir el estrés y favorecer una sensación profunda de equilibrio.",
-      },
-      {
-        name: "Masaje Escultural con Maderoterapia",
-        duration: "60 min",
-        price: "60 EUR",
-        description:
-          "Técnica natural y no invasiva con instrumentos de madera para tonificar, activar la circulación y trabajar la retención de líquidos dentro de una experiencia relajante.",
+          "Técnica suave y rítmica que favorece la circulación linfática y ayuda a reducir la retención de líquidos.",
       },
       {
         name: "Reflexología Podal Holística",
-        duration: "45 min",
-        price: "40 EUR",
+        duration: "50 min",
+        price: "50 EUR",
         description:
-          "Técnica manual sobre puntos reflejos de los pies orientada a favorecer descanso, equilibrio y bienestar general.",
+          "Trabajo manual sobre puntos reflejos de los pies para favorecer el equilibrio y el bienestar general.",
+      },
+      {
+        name: "Masaje Holístico con Aromaterapia",
+        duration: "50 min",
+        price: "50 EUR",
+        description:
+          "Experiencia sensorial que combina masaje corporal y aceites esenciales para armonizar cuerpo y mente.",
+      },
+      {
+        name: "Masaje de Tejido Profundo",
+        duration: "50 min",
+        price: "55 EUR",
+        description:
+          "Trabajo específico sobre las capas musculares profundas para liberar tensiones acumuladas y mejorar la movilidad.",
+      },
+      {
+        name: "Quiromasaje",
+        duration: "50 min",
+        price: "60 EUR",
+        description:
+          "Conjunto de técnicas manuales orientadas a aliviar contracturas, mejorar la circulación y recuperar el bienestar corporal.",
+      },
+      {
+        name: "Masaje Escultural con Maderoterapia",
+        duration: "50 min",
+        price: "60 EUR",
+        description:
+          "Técnica natural realizada con instrumentos de madera para estimular la circulación y redefinir la silueta corporal.",
+      },
+      {
+        name: "Osteopatía Bioenergética Celular",
+        duration: "80 min",
+        price: "90 EUR",
+        description:
+          "Método integrativo que trabaja los desequilibrios físicos y energéticos para favorecer la armonía y el bienestar global.",
       },
     ],
   },
@@ -169,24 +211,24 @@ const serviceCatalog = {
     treatments: [
       {
         name: "Éxtasis de Cacao",
-        duration: "1 h 25 min",
+        duration: "80 min",
         price: "80 EUR",
         description:
-          "Ritual envolvente para la piel que incluye exfoliación corporal, envoltura nutritiva de cacao puro y un masaje relajante final.",
+          "Exfoliación corporal, envoltura nutritiva de cacao y masaje relajante en una experiencia sensorial envolvente.",
       },
       {
         name: "Cura de Vinoterapia",
-        duration: "1 h 25 min",
+        duration: "80 min",
         price: "80 EUR",
         description:
-          "Experiencia antioxidante con exfoliación revitalizante, envoltura nutritiva de uva y masaje calmante con aceites ricos en vitaminas.",
+          "Ritual antioxidante con exfoliación, envoltura de uva y masaje nutritivo para revitalizar cuerpo y piel.",
       },
       {
         name: "Masaje con Piedras Calientes",
-        duration: "1 h 15 min",
+        duration: "80 min",
         price: "75 EUR",
         description:
-          "El calor terapéutico de las piedras se combina con maniobras manuales para aliviar la tensión muscular, estimular la circulación y aportar confort profundo.",
+          "El calor de las piedras volcánicas se combina con maniobras manuales para proporcionar relajación profunda y bienestar corporal.",
       },
     ],
   },
@@ -195,25 +237,38 @@ const serviceCatalog = {
     intro: "Experiencias profundas que combinan técnica manual, estética y acompañamiento corporal personalizado.",
     treatments: [
       {
-        name: "Para cómo te sientes",
-        duration: "1 h 40 min",
+        name: "Para Cómo Te Sientes",
+        duration: "110 min",
         price: "90 EUR",
         description:
-          "Ritual profundamente relajante para liberar tensiones acumuladas, calmar el sistema nervioso y devolver al cuerpo una sensación de equilibrio. Incluye liberación del pericardio, terapia craneosacral, quiromasaje relajante profundo, peeling facial suave y masaje facial y cervical. Personalización disponible: masaje drenante o masaje sensitivo envolvente.",
+          "Ritual orientado a liberar tensiones, equilibrar el sistema nervioso y recuperar el bienestar físico y emocional.",
       },
       {
-        name: "Para cómo te ves",
-        duration: "1 h 40 min",
+        name: "Para Cómo Te Ves",
+        duration: "110 min",
         price: "95 EUR",
         description:
-          "Tratamiento integral que combina estética avanzada manual y bienestar interno. Incluye higiene facial profunda con vapor, peeling, sérum, mascarilla personalizada, tratamiento específico según la piel, contorno de ojos, masaje facial reafirmante y terapia craneosacral. Opcional: maderoterapia, drenaje linfático manual o masaje circulatorio.",
+          "Experiencia integral que combina cuidado facial avanzado y técnicas manuales para potenciar la belleza natural de la piel.",
       },
       {
-        name: "Para cómo te transformas",
-        duration: "1 h 40 min",
+        name: "Para Cómo Te Transformas",
+        duration: "110 min",
         price: "100 EUR",
         description:
-          "Acompañamiento terapéutico profundo orientado a desbloquear emociones, comprender procesos internos y propiciar cambios desde el cuerpo. Incluye liberación del pericardio, terapia craneosacral, reflexología y quiromasaje terapéutico. Enfoque a elegir: acompañamiento emocional, técnica metamórfica, masaje con piedras o bambú, o drenaje linfático.",
+          "Acompañamiento corporal profundo orientado al bienestar integral y a los procesos de transformación personal.",
+      },
+    ],
+  },
+  mirada: {
+    title: "Belleza de la mirada",
+    intro: "Tratamientos para realzar la mirada de forma elegante, natural y duradera.",
+    treatments: [
+      {
+        name: "Lifting de Pestañas",
+        duration: "80 min",
+        price: "50 EUR",
+        description:
+          "Tratamiento diseñado para elevar, curvar y definir las pestañas naturales desde la raíz, realzando la mirada de forma elegante y natural. Incluye nutrición específica para fortalecer las pestañas y potenciar un resultado duradero.",
       },
     ],
   },
@@ -283,11 +338,11 @@ function getDemoReply(message) {
   }
 
   if (normalized.includes("piel") || normalized.includes("facial") || normalized.includes("cara")) {
-    return `Para necesidades de piel, la carta incluye A Medida, Mar Profundo Purificante y Anti-Edad Milagro Facial. La elección depende de si buscas hidratación, limpieza profunda o firmeza. ${bookingLine}`;
+    return `Para necesidades de piel, la carta incluye Facial Personalizado, Mar Profundo Purificante, Lifting Facial Manual y Facial Reafirmante Premium. La elección depende de si buscas equilibrio, limpieza profunda, luminosidad o firmeza. ${bookingLine}`;
   }
 
   if (normalized.includes("estrés") || normalized.includes("estres") || normalized.includes("cansancio") || normalized.includes("descanso")) {
-    return `Para estrés, cansancio o necesidad de descanso, pueden encajar el Masaje Antiestrés Recuperador, el Masaje Holístico con Aromaterapia o el ritual de autor Para cómo te sientes. ${bookingLine}`;
+    return `Para estrés, cansancio o necesidad de descanso, pueden encajar el Masaje Antiestrés Recuperador, el Masaje Holístico con Aromaterapia o el ritual de autor Para Cómo Te Sientes. ${bookingLine}`;
   }
 
   if (normalized.includes("tension") || normalized.includes("tensión") || normalized.includes("contractura") || normalized.includes("muscular")) {
@@ -295,11 +350,11 @@ function getDemoReply(message) {
   }
 
   if (normalized.includes("transform")) {
-    return `Para procesos de cambio o desbloqueo emocional, el ritual de autor Para cómo te transformas es la opción más orientada a acompañamiento profundo desde el cuerpo. ${bookingLine}`;
+    return `Para procesos de cambio personal, el ritual de autor Para Cómo Te Transformas es la opción más orientada al acompañamiento corporal profundo y al bienestar integral. ${bookingLine}`;
   }
 
   if (normalized.includes("terapia") || normalized.includes("tratamiento") || normalized.includes("servicio")) {
-    return `Puedo orientarte por familias: faciales, cuidado corporal, masajes manuales, rituales especiales o rituales de autor. Si me dices qué buscas, afino la recomendación. ${bookingLine}`;
+    return `Puedo orientarte por familias: faciales, masajes y terapias manuales, tratamientos corporales, belleza de la mirada, rituales del mundo o rituales de autor. Si me dices qué buscas, afino la recomendación. ${bookingLine}`;
   }
 
   return demoReplies[Math.floor(Math.random() * demoReplies.length)];
