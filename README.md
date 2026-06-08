@@ -10,6 +10,7 @@ Web pública para consultar la carta de tratamientos de Miriam Herrero Sánchez 
 - Fichas con descripción, duración, precio y acceso directo a reserva.
 - Calendario personalizado con selección de fecha y hora.
 - Próximos eventos públicos gestionados desde el panel privado, con bloqueo automático de fechas.
+- Portada con vídeo ambiental de playa y alternativa estática accesible.
 - Formulario de reserva con servicio, nombre, teléfono, email y comentarios.
 - Panel privado para gestionar disponibilidad y citas.
 
