@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Exclusive services, personalized treatments and reservations from Miriam Herrero Sánchez.">
+    <title>Miriam Herrero Sánchez | Services and reservations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <div class="language-switcher" aria-label="Select language">
+          <a href="./index.html" lang="es">ES</a>
+          <span aria-hidden="true">|</span>
+          <a class="active" href="./index-en.html" lang="en" aria-current="page">EN</a>
+        </div>
+        <a class="brand" href="https://www.miriamherrerosanchez.com/" aria-label="Return to Miriam's website">
+          <img src="./logo-cropped.jpeg" alt="Miriam Herrero Sánchez">
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="#servicios">Services</a>
+          <a href="./ritual-finder-en.html">Ritual Finder</a>
+          <a href="#calendario">Calendar</a>
+          <a href="#reserva">Contact</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="page-title">
+          <p class="eyebrow">Exclusive service menu</p>
+          <h1 id="page-title">Wellness, signature rituals and personalized treatments.</h1>
+          <p>
+            A premium experience designed to turn personal care into a moment of
+            privacy, calm and tailored attention. Discover the available treatments and schedule
+            directly the service that best fits you.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-link" href="./ritual-finder-en.html">Discover your ideal treatment</a>
+            <a class="secondary-link" href="#servicios">See services</a>
+            <a class="secondary-link" href="#calendario">Schedule appointment</a>
+            <a class="secondary-link" href="https://www.miriamherrerosanchez.com/">Return to the Web</a>
+          </div>
+        </section>
+
+        <section class="services-section" id="servicios" aria-labelledby="services-title">
+          <div class="section-heading compact">
+            <p class="eyebrow">Exclusive services</p>
+            <h2 id="services-title">A treatment menu for every need</h2>
+          </div>
+
+          <div class="service-grid" aria-label="Service families">
+            <button class="service-card" type="button" data-service-tab="faciales">
+              <span>01</span>
+              <h3>Exclusive facials</h3>
+              <p>Personalized Facial, Deep Sea Purifying Facial, Manual Facial Lifting and Premium Firming Facial.</p>
+            </button>
+            <button class="service-card" type="button" data-service-tab="corporal">
+              <span>02</span>
+              <h3>Body treatments</h3>
+              <p>Exfoliation, wraps and personalized body treatment.</p>
+            </button>
+            <button class="service-card" type="button" data-service-tab="masajes">
+              <span>03</span>
+              <h3>Massages and therapies</h3>
+              <p>Manual massages, drainage, chiromassage and bioenergetic osteopathy.</p>
+            </button>
+            <button class="service-card" type="button" data-service-tab="rituales">
+              <span>04</span>
+              <h3>World rituals</h3>
+              <p>Cacao Ecstasy, Vinotherapy Cure and Hot Stone Massage.</p>
+            </button>
+            <button class="service-card featured" type="button" data-service-tab="autor">
+              <span>05</span>
+              <h3>Signature rituals</h3>
+              <p>For How You Feel, For How You Look and For How You Transform.</p>
+            </button>
+            <button class="service-card" type="button" data-service-tab="mirada">
+              <span>06</span>
+              <h3>Eye beauty</h3>
+              <p>Eyelash Lift to enhance and define the eyes naturally.</p>
+            </button>
+          </div>
+
+          <div class="service-modal" id="service-modal" aria-hidden="true">
+            <div class="service-modal-backdrop" data-close-modal></div>
+            <section class="service-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="service-modal-title">
+              <button class="modal-close" type="button" aria-label="Close services" data-close-modal>
+                ×
+              </button>
+              <div class="service-detail" id="service-detail" aria-live="polite"></div>
+            </section>
+          </div>
+        </section>
+
+        <section class="calendar-section" id="calendario" aria-labelledby="calendar-title">
+          <div class="section-heading compact">
+            <p class="eyebrow">Personalized agenda</p>
+            <h2 id="calendar-title">Book an available appointment</h2>
+          </div>
+
+          <div class="calendar-shell">
+            <div class="calendar-main">
+              <div class="calendar-toolbar">
+                <button class="calendar-nav-button" type="button" id="prev-month" aria-label="Previous month">‹</button>
+                <h3 id="calendar-month"></h3>
+                <button class="calendar-nav-button" type="button" id="next-month" aria-label="Next month">›</button>
+              </div>
+              <div class="calendar-weekdays" aria-hidden="true">
+                <span>Mon</span>
+                <span>Tue</span>
+                <span>Wed</span>
+                <span>Thu</span>
+                <span>Fri</span>
+                <span>Sat</span>
+                <span>Sun</span>
+              </div>
+              <div class="calendar-grid" id="calendar-grid" aria-label="Availability calendar"></div>
+            </div>
+
+            <aside class="day-panel" aria-live="polite">
+              <p class="eyebrow">Selected day</p>
+              <h3 id="selected-date-title">Select a date</h3>
+              <p id="selected-date-copy">
+                Available days are marked in gold. Choose a time to complete your booking.
+              </p>
+              <div class="slot-list" id="slot-list"></div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="reservation-band" id="reserva">
+          <p class="eyebrow">Information and reservations</p>
+          <h2>By appointment, at home or in specialized treatment rooms.</h2>
+          <p>
+            Availability is subject to location and schedule. To confirm options, service conditions
+            and upcoming workshops, contact Miriam directly via WhatsApp.
+          </p>
+          <div class="reservation-actions">
+            <a class="primary-link" href="https://wa.me/34646410037">WhatsApp +34 646 410 037</a>
+            <a class="secondary-link" href="https://www.miriamherrerosanchez.com/terapias">See therapies</a>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <button class="admin-entry" type="button" id="admin-entry" aria-label="Miriam Access">✦</button>
+
+    <div class="booking-modal" id="booking-modal" aria-hidden="true">
+      <div class="service-modal-backdrop" data-close-booking></div>
+      <section class="booking-dialog" role="dialog" aria-modal="true" aria-labelledby="booking-title">
+        <button class="modal-close" type="button" aria-label="Close reservation" data-close-booking>×</button>
+        <p class="eyebrow">Reservation request</p>
+        <h2 id="booking-title">Complete your details</h2>
+        <p id="booking-summary"></p>
+        <form class="booking-form" id="booking-form">
+          <label>
+            Service
+            <select id="booking-service" required></select>
+          </label>
+          <label>
+            Name
+            <input id="booking-name" type="text" autocomplete="name" required>
+          </label>
+          <label>
+            Phone
+            <input id="booking-phone" type="tel" autocomplete="tel" required>
+          </label>
+          <label>
+            E-mail
+            <input id="booking-email" type="email" autocomplete="email" required>
+          </label>
+          <label>
+            Comments
+            <textarea id="booking-comments" rows="4"></textarea>
+          </label>
+          <button class="primary-link" type="submit">Confirm reservation</button>
+        </form>
+      </section>
+    </div>
+
+    <div class="admin-modal" id="admin-modal" aria-hidden="true">
+      <div class="service-modal-backdrop" data-close-admin></div>
+      <section class="admin-dialog" role="dialog" aria-modal="true" aria-labelledby="admin-title">
+        <button class="modal-close" type="button" aria-label="Close Miriam panel" data-close-admin>×</button>
+        <div id="pin-panel">
+          <p class="eyebrow">Miriam Access</p>
+          <h2 id="admin-title">Private panel</h2>
+          <form class="pin-form" id="pin-form">
+            <label>
+              Access PIN
+              <input id="admin-pin" type="password" inputmode="numeric" autocomplete="off" required>
+            </label>
+            <button class="primary-link" type="submit">Enter</button>
+            <p class="form-note" id="pin-error" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <div class="admin-panel" id="admin-panel" hidden>
+          <div class="admin-heading">
+            <div>
+              <p class="eyebrow">Miriam Mode</p>
+              <h2>Manage calendar</h2>
+            </div>
+            <button class="secondary-link" type="button" id="admin-logout">Log out</button>
+          </div>
+
+          <div class="admin-grid">
+            <form class="admin-card" id="availability-form">
+              <h3>Edit availability</h3>
+              <label>
+                Date
+                <input id="availability-date" type="date" required>
+              </label>
+              <div class="availability-editor" id="availability-editor"></div>
+              <p class="form-note">
+                Select the available times for that day. Existing appointments remain protected
+                and cannot be blocked from here.
+              </p>
+              <div class="admin-actions">
+                <button class="primary-link" type="submit">Save availability</button>
+                <button class="secondary-link" type="button" id="morning-only">Morning only</button>
+                <button class="secondary-link" type="button" id="clear-day">Block day</button>
+              </div>
+            </form>
+
+            <form class="admin-card" id="manual-appointment-form">
+              <h3>Add phone appointment</h3>
+              <label>
+                Date
+                <input id="manual-date" type="date" required>
+              </label>
+              <label>
+                Time
+                <input id="manual-time" type="time" required>
+              </label>
+              <label>
+                Name
+                <input id="manual-name" type="text" required>
+              </label>
+              <label>
+                Phone
+                <input id="manual-phone" type="tel" required>
+              </label>
+              <label>
+                E-mail
+                <input id="manual-email" type="email">
+              </label>
+              <label>
+                Service
+                <select id="manual-service"></select>
+              </label>
+              <button class="primary-link" type="submit">Add appointment</button>
+            </form>
+          </div>
+
+          <div class="admin-card appointments-card">
+            <h3>Scheduled appointments</h3>
+            <div class="admin-appointments" id="admin-appointments"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="./script-en.js"></script>
+  </body>
+</html>

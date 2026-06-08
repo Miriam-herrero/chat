@@ -47,6 +47,7 @@ textarea {
 }
 
 .site-header {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -55,6 +56,27 @@ textarea {
   min-height: 176px;
   padding: 22px 0 0;
   border-bottom: 1px solid var(--line);
+}
+
+.language-switcher {
+  position: absolute;
+  top: 22px;
+  right: 64px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.language-switcher a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.language-switcher a.active {
+  color: var(--gold-deep);
 }
 
 .brand {
@@ -795,6 +817,7 @@ h1 {
   .site-header {
     min-height: 150px;
     gap: 16px;
+    padding-top: 42px;
   }
 
   .brand {
