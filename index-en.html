@@ -129,6 +129,17 @@
               <div class="slot-list" id="slot-list"></div>
             </aside>
           </div>
+
+          <details class="events-panel" id="events">
+            <summary>
+              <span>
+                <span class="eyebrow">Special schedule</span>
+                <strong>Upcoming events</strong>
+              </span>
+              <span class="events-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="events-list" id="events-list"></div>
+          </details>
         </section>
 
         <section class="reservation-band" id="reserva">
@@ -259,6 +270,43 @@
           <div class="admin-card appointments-card">
             <h3>Scheduled appointments</h3>
             <div class="admin-appointments" id="admin-appointments"></div>
+          </div>
+
+          <div class="admin-grid event-admin-grid">
+            <form class="admin-card" id="event-form">
+              <h3>Add event</h3>
+              <label>
+                Event name
+                <input id="event-name" type="text" required>
+              </label>
+              <label>
+                Location
+                <input id="event-place" type="text" required>
+              </label>
+              <label>
+                Date
+                <input id="event-date" type="date" required>
+              </label>
+              <label>
+                Duration
+                <input id="event-duration" type="text" placeholder="E.g. 3 hours" required>
+              </label>
+              <label>
+                Price
+                <input id="event-price" type="text" placeholder="E.g. 60 EUR" required>
+              </label>
+              <label>
+                Event content
+                <textarea id="event-content" rows="5" required></textarea>
+              </label>
+              <button class="primary-link" type="submit">Publish event</button>
+              <p class="form-note" id="event-error" aria-live="polite"></p>
+            </form>
+
+            <div class="admin-card">
+              <h3>Published events</h3>
+              <div class="admin-events" id="admin-events"></div>
+            </div>
           </div>
         </div>
       </section>

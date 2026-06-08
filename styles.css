@@ -514,6 +514,98 @@ h1 {
   line-height: 1.65;
 }
 
+.events-panel {
+  margin-top: 18px;
+  border: 1px solid var(--line);
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+.events-panel summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px 26px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.events-panel summary::-webkit-details-marker {
+  display: none;
+}
+
+.events-panel summary .eyebrow {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.events-panel summary strong {
+  font-family: var(--serif);
+  font-size: 34px;
+}
+
+.events-toggle {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  place-items: center;
+  color: var(--gold-deep);
+  font-size: 26px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  transition: transform 180ms ease;
+}
+
+.events-panel[open] .events-toggle {
+  transform: rotate(45deg);
+}
+
+.events-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  padding: 0 26px 26px;
+  border-top: 1px solid var(--line);
+}
+
+.event-card {
+  padding: 22px;
+  border: 1px solid var(--line);
+}
+
+.event-card h3 {
+  font-size: 32px;
+}
+
+.event-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin: 12px 0;
+  color: var(--gold-deep);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.event-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+  white-space: pre-line;
+}
+
+.calendar-day.event-day {
+  color: var(--gold-deep);
+  border-color: var(--gold);
+  background: #fbf6ee;
+}
+
+.calendar-day.event-day small {
+  color: var(--gold-deep);
+}
+
 .slot-list {
   display: grid;
   gap: 10px;
@@ -718,6 +810,16 @@ h1 {
   margin-top: 18px;
 }
 
+.event-admin-grid {
+  margin-top: 18px;
+}
+
+.admin-events {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
 .admin-appointments {
   display: grid;
   gap: 10px;
@@ -885,6 +987,19 @@ h1 {
     font-size: 8px;
     line-height: 1.15;
     text-overflow: ellipsis;
+  }
+
+  .events-list {
+    grid-template-columns: 1fr;
+    padding: 0 14px 14px;
+  }
+
+  .events-panel summary {
+    padding: 18px 14px;
+  }
+
+  .events-panel summary strong {
+    font-size: 28px;
   }
 
   .reservation-band,

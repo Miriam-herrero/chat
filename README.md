@@ -9,6 +9,7 @@ Web pública para consultar la carta de tratamientos de Miriam Herrero Sánchez 
 - Ritual Finder bilingüe con recomendación y acceso directo a reserva.
 - Fichas con descripción, duración, precio y acceso directo a reserva.
 - Calendario personalizado con selección de fecha y hora.
+- Próximos eventos públicos gestionados desde el panel privado, con bloqueo automático de fechas.
 - Formulario de reserva con servicio, nombre, teléfono, email y comentarios.
 - Panel privado para gestionar disponibilidad y citas.
 

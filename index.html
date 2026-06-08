@@ -140,6 +140,17 @@
               <div class="slot-list" id="slot-list"></div>
             </aside>
           </div>
+
+          <details class="events-panel" id="eventos">
+            <summary>
+              <span>
+                <span class="eyebrow">Agenda especial</span>
+                <strong>Próximos eventos</strong>
+              </span>
+              <span class="events-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="events-list" id="events-list"></div>
+          </details>
         </section>
 
         <section class="reservation-band" id="reserva">
@@ -270,6 +281,43 @@
           <div class="admin-card appointments-card">
             <h3>Citas agendadas</h3>
             <div class="admin-appointments" id="admin-appointments"></div>
+          </div>
+
+          <div class="admin-grid event-admin-grid">
+            <form class="admin-card" id="event-form">
+              <h3>Añadir evento</h3>
+              <label>
+                Nombre del evento
+                <input id="event-name" type="text" required />
+              </label>
+              <label>
+                Lugar
+                <input id="event-place" type="text" required />
+              </label>
+              <label>
+                Fecha
+                <input id="event-date" type="date" required />
+              </label>
+              <label>
+                Duración
+                <input id="event-duration" type="text" placeholder="Ej. 3 horas" required />
+              </label>
+              <label>
+                Precio
+                <input id="event-price" type="text" placeholder="Ej. 60 EUR" required />
+              </label>
+              <label>
+                Contenido del evento
+                <textarea id="event-content" rows="5" required></textarea>
+              </label>
+              <button class="primary-link" type="submit">Publicar evento</button>
+              <p class="form-note" id="event-error" aria-live="polite"></p>
+            </form>
+
+            <div class="admin-card">
+              <h3>Eventos publicados</h3>
+              <div class="admin-events" id="admin-events"></div>
+            </div>
           </div>
         </div>
       </section>

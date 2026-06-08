@@ -42,6 +42,16 @@ const manualPhoneEl = document.querySelector("#manual-phone");
 const manualEmailEl = document.querySelector("#manual-email");
 const manualServiceEl = document.querySelector("#manual-service");
 const adminAppointmentsEl = document.querySelector("#admin-appointments");
+const eventsListEl = document.querySelector("#events-list");
+const eventFormEl = document.querySelector("#event-form");
+const eventNameEl = document.querySelector("#event-name");
+const eventPlaceEl = document.querySelector("#event-place");
+const eventDateEl = document.querySelector("#event-date");
+const eventDurationEl = document.querySelector("#event-duration");
+const eventPriceEl = document.querySelector("#event-price");
+const eventContentEl = document.querySelector("#event-content");
+const eventErrorEl = document.querySelector("#event-error");
+const adminEventsEl = document.querySelector("#admin-events");
 const ADMIN_PIN = "987321";
 const STANDARD_SLOT_GROUPS = [
   { label: "Mañana", slots: ["09:00", "10:00", "11:00", "12:00", "13:00"] },
@@ -392,13 +402,17 @@ function createInitialCalendarState() {
     availability[toDateKey(date)] = baseSlots.slice(0, date.getDay() === 6 ? 2 : 3);
   }
 
-  return { availability, appointments: [] };
+  return { availability, appointments: [], events: [] };
 }
 
 function loadCalendarState() {
   try {
     const saved = localStorage.getItem(CALENDAR_STORAGE_KEY);
-    return saved ? JSON.parse(saved) : createInitialCalendarState();
+    const state = saved ? JSON.parse(saved) : createInitialCalendarState();
+    state.availability ||= {};
+    state.appointments ||= [];
+    state.events ||= [];
+    return state;
   } catch {
     return createInitialCalendarState();
   }
@@ -432,7 +446,15 @@ function isSlotBooked(dateKey, time) {
   );
 }
 
+function getEventForDate(dateKey) {
+  return calendarState.events.find((event) => event.date === dateKey);
+}
+
 function getAvailableSlots(dateKey) {
+  if (getEventForDate(dateKey)) {
+    return [];
+  }
+
   return (calendarState.availability[dateKey] || [])
     .filter((time) => !isSlotBooked(dateKey, time))
     .sort();
@@ -463,6 +485,7 @@ function renderCalendar() {
     const dateKey = toDateKey(date);
     const availableCount = getAvailableSlots(dateKey).length;
     const appointmentsCount = getAppointmentsForDate(dateKey).length;
+    const event = getEventForDate(dateKey);
     const isPast = date < new Date(today.getFullYear(), today.getMonth(), today.getDate());
     const button = document.createElement("button");
     button.type = "button";
@@ -482,9 +505,14 @@ function renderCalendar() {
       button.classList.add("booked");
     }
 
+    if (event) {
+      button.classList.add("event-day");
+      button.title = event.name;
+    }
+
     button.innerHTML = `
       <strong>${day}</strong>
-      <small>${availableCount ? `${availableCount} huecos` : appointmentsCount ? `${appointmentsCount} cita(s)` : "Sin huecos"}</small>
+      <small>${event ? "Evento" : availableCount ? `${availableCount} huecos` : appointmentsCount ? `${appointmentsCount} cita(s)` : "Sin huecos"}</small>
     `;
     button.addEventListener("click", () => selectCalendarDate(dateKey));
     calendarGridEl.appendChild(button);
@@ -505,8 +533,11 @@ function renderSelectedDay() {
   const selectedDate = fromDateKey(selectedDateKey);
   const slots = getAvailableSlots(selectedDateKey);
   const appointments = getAppointmentsForDate(selectedDateKey);
+  const event = getEventForDate(selectedDateKey);
   selectedDateTitleEl.textContent = dateTitleFormatter.format(selectedDate);
-  selectedDateCopyEl.textContent = slots.length
+  selectedDateCopyEl.textContent = event
+    ? `Fecha reservada para el evento “${event.name}”.`
+    : slots.length
     ? "Elige una hora disponible y completa tus datos para solicitar la reserva."
     : "No hay huecos disponibles para este día. Puedes revisar otras fechas o contactar por WhatsApp.";
   slotListEl.innerHTML = "";
@@ -610,6 +641,7 @@ function openAdminModal() {
   availabilityDateEl.value = selectedDateKey;
   renderAvailabilityEditor();
   renderAdminAppointments();
+  renderAdminEvents();
   adminPinEl.focus();
 }
 
@@ -639,6 +671,7 @@ function submitPin(event) {
   renderSelectedDay();
   renderAvailabilityEditor();
   renderAdminAppointments();
+  renderAdminEvents();
 }
 
 function logoutAdmin() {
@@ -656,6 +689,11 @@ function addManualAppointment(event) {
 
   if (isSlotBooked(date, time)) {
     window.alert("Ese horario ya tiene una cita.");
+    return;
+  }
+
+  if (getEventForDate(date)) {
+    window.alert("Esa fecha está reservada para un evento.");
     return;
   }
 
@@ -724,6 +762,103 @@ function renderAdminAppointments() {
     row.querySelector("button").addEventListener("click", () => deleteAppointment(appointment.id));
     adminAppointmentsEl.appendChild(row);
   });
+}
+
+function renderEvents() {
+  if (!eventsListEl) {
+    return;
+  }
+
+  const todayKey = toDateKey(today);
+  const events = calendarState.events
+    .filter((event) => event.date >= todayKey)
+    .slice()
+    .sort((a, b) => a.date.localeCompare(b.date));
+
+  eventsListEl.innerHTML = events.length
+    ? events
+        .map(
+          (event) => `
+            <article class="event-card">
+              <p class="eyebrow">${dateTitleFormatter.format(fromDateKey(event.date))}</p>
+              <h3>${event.name}</h3>
+              <div class="event-meta">
+                <span>${event.place}</span>
+                <span>${event.duration}</span>
+                <span>${event.price}</span>
+              </div>
+              <p>${event.content}</p>
+            </article>
+          `,
+        )
+        .join("")
+    : `<div class="empty-state">Todavía no hay próximos eventos publicados.</div>`;
+}
+
+function renderAdminEvents() {
+  if (!adminEventsEl) {
+    return;
+  }
+
+  const events = calendarState.events.slice().sort((a, b) => a.date.localeCompare(b.date));
+  adminEventsEl.innerHTML = events.length ? "" : `<div class="empty-state">Todavía no hay eventos publicados.</div>`;
+
+  events.forEach((event) => {
+    const row = document.createElement("article");
+    row.className = "appointment-row";
+    row.innerHTML = `
+      <div>
+        <strong>${event.date} · ${event.name}</strong>
+        <span>${event.place} · ${event.duration} · ${event.price}</span>
+      </div>
+      <button class="danger-button" type="button">Eliminar</button>
+    `;
+    row.querySelector("button").addEventListener("click", () => deleteEvent(event.id));
+    adminEventsEl.appendChild(row);
+  });
+}
+
+function addEvent(event) {
+  event.preventDefault();
+  const date = eventDateEl.value;
+  const appointments = getAppointmentsForDate(date);
+
+  eventErrorEl.textContent = "";
+
+  if (getEventForDate(date)) {
+    eventErrorEl.textContent = "Ya existe un evento publicado en esa fecha.";
+    return;
+  }
+
+  if (appointments.length) {
+    eventErrorEl.textContent = "No se puede reservar esa fecha porque ya tiene citas. Elimina o reprograma primero las citas existentes.";
+    return;
+  }
+
+  calendarState.events.push({
+    id: crypto.randomUUID(),
+    name: eventNameEl.value.trim(),
+    place: eventPlaceEl.value.trim(),
+    date,
+    duration: eventDurationEl.value.trim(),
+    price: eventPriceEl.value.trim(),
+    content: eventContentEl.value.trim(),
+  });
+  saveCalendarState();
+  eventFormEl.reset();
+  renderCalendar();
+  renderSelectedDay();
+  renderEvents();
+  renderAdminEvents();
+}
+
+function deleteEvent(id) {
+  calendarState.events = calendarState.events.filter((event) => event.id !== id);
+  saveCalendarState();
+  renderCalendar();
+  renderSelectedDay();
+  renderEvents();
+  renderAdminEvents();
 }
 
 function getAvailabilityEditorDate() {
@@ -829,6 +964,8 @@ availabilityDateEl?.addEventListener("change", () => {
 morningOnlyButton?.addEventListener("click", setMorningOnly);
 clearDayButton?.addEventListener("click", clearSelectedDay);
 manualAppointmentFormEl?.addEventListener("submit", addManualAppointment);
+eventFormEl?.addEventListener("submit", addEvent);
 populateServiceSelects();
 renderCalendar();
 renderSelectedDay();
+renderEvents();
