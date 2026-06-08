@@ -842,18 +842,49 @@ h1 {
     font-size: 17px;
   }
 
-  .service-grid,
-  .calendar-grid,
-  .calendar-weekdays {
+  .service-grid {
     grid-template-columns: 1fr;
   }
 
   .calendar-weekdays {
-    display: none;
+    gap: 3px;
+    font-size: 9px;
+  }
+
+  .calendar-grid {
+    gap: 3px;
+  }
+
+  .calendar-main {
+    padding: 14px 8px;
+  }
+
+  .calendar-toolbar {
+    margin-bottom: 18px;
+  }
+
+  .calendar-toolbar h3 {
+    font-size: 30px;
   }
 
   .calendar-day {
-    min-height: 68px;
+    min-width: 0;
+    min-height: 54px;
+    padding: 6px 2px;
+    text-align: center;
+  }
+
+  .calendar-day strong {
+    font-size: 14px;
+  }
+
+  .calendar-day small {
+    display: block;
+    margin-top: 5px;
+    overflow: hidden;
+    font-size: 8px;
+    line-height: 1.15;
+    text-overflow: ellipsis;
   }
 
   .reservation-band,
