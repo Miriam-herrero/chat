@@ -60,7 +60,7 @@ let calendarCursor = new Date(today.getFullYear(), today.getMonth(), 1);
 let selectedDateKey = toDateKey(today);
 let pendingBooking = null;
 let isAdminMode = false;
-let preselectedService = "";
+let preselectedService = new URLSearchParams(window.location.search).get("service") || "";
 
 const serviceCatalog = {
   faciales: {

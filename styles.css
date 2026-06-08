@@ -802,8 +802,9 @@ h1 {
   }
 
   .main-nav {
-    gap: 0;
-    justify-content: space-between;
+    gap: 4px 14px;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
   .main-nav a {
