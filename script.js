@@ -1,7 +1,3 @@
-const messagesEl = document.querySelector("#messages");
-const formEl = document.querySelector("#chat-form");
-const inputEl = document.querySelector("#message-input");
-const promptButtons = document.querySelectorAll("[data-prompt]");
 const serviceTabs = document.querySelectorAll("[data-service-tab]");
 const serviceDetailEl = document.querySelector("#service-detail");
 const serviceModalEl = document.querySelector("#service-modal");
@@ -65,7 +61,6 @@ let selectedDateKey = toDateKey(today);
 let pendingBooking = null;
 let isAdminMode = false;
 let preselectedService = "";
-let chatHistory = [];
 
 const serviceCatalog = {
   faciales: {
@@ -273,158 +268,6 @@ const serviceCatalog = {
     ],
   },
 };
-
-const bookingLine =
-  "Para confirmar disponibilidad y reservar, lo mejor es escribir por WhatsApp al +34 646 410 037.";
-
-const demoReplies = [
-  `Gracias por contarlo. Puedo ayudarte a ordenar la necesidad y elegir entre facial, masaje, ritual corporal o ritual de autor. ${bookingLine}`,
-  `Lo miro contigo desde una primera orientación, sin sustituir una sesión profesional. Si buscas calma, cuerpo o transformación, puedo proponerte una opción y derivarte a reserva. ${bookingLine}`,
-  `Podemos partir de lo que necesitas ahora: descanso, tensión muscular, piel, detox o acompañamiento emocional. ${bookingLine}`,
-];
-
-const initialMessages = [
-  {
-    author: "bot",
-    label: "Asistente Miriam",
-    text:
-      "Hola, soy el asistente digital de Miriam Herrero Sánchez. Puedo orientarte entre sus servicios, terapias, rituales y talleres, y ayudarte a dar el siguiente paso para reservar.",
-  },
-];
-
-function getChatApiUrl() {
-  if (window.CHAT_API_URL) {
-    return window.CHAT_API_URL;
-  }
-
-  if (location.hostname.endsWith("vercel.app")) {
-    return "/api/chat";
-  }
-
-  return "";
-}
-
-function addMessage({ author, label, text }) {
-  const message = document.createElement("article");
-  message.className = `message ${author}`;
-  message.innerHTML = `<strong>${label}</strong><span>${escapeHtml(text)}</span>`;
-  messagesEl.appendChild(message);
-  messagesEl.scrollTop = messagesEl.scrollHeight;
-}
-
-function addTypingMessage() {
-  const message = document.createElement("article");
-  message.className = "message bot typing";
-  message.innerHTML = "<strong>Asistente Miriam</strong><span>Escribiendo...</span>";
-  messagesEl.appendChild(message);
-  messagesEl.scrollTop = messagesEl.scrollHeight;
-  return message;
-}
-
-function escapeHtml(value) {
-  return value
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
-
-function getDemoReply(message) {
-  const normalized = message.toLowerCase();
-
-  if (normalized.includes("taller") || normalized.includes("retiro") || normalized.includes("formacion") || normalized.includes("formación")) {
-    return `Miriam también organiza talleres y retiros grupales según disponibilidad. Puedo ayudarte a preparar la consulta para pedir fechas, ubicación y condiciones. ${bookingLine}`;
-  }
-
-  if (normalized.includes("piel") || normalized.includes("facial") || normalized.includes("cara")) {
-    return `Para necesidades de piel, la carta incluye Facial Personalizado, Mar Profundo Purificante, Lifting Facial Manual y Facial Reafirmante Premium. La elección depende de si buscas equilibrio, limpieza profunda, luminosidad o firmeza. ${bookingLine}`;
-  }
-
-  if (normalized.includes("estrés") || normalized.includes("estres") || normalized.includes("cansancio") || normalized.includes("descanso")) {
-    return `Para estrés, cansancio o necesidad de descanso, pueden encajar el Masaje Antiestrés Recuperador, el Masaje Holístico con Aromaterapia o el ritual de autor Para Cómo Te Sientes. ${bookingLine}`;
-  }
-
-  if (normalized.includes("tension") || normalized.includes("tensión") || normalized.includes("contractura") || normalized.includes("muscular")) {
-    return `Para tensión muscular, la carta contempla Masaje de Tejido Profundo, Piedras Calientes o un ritual de autor personalizado. Conviene confirmar con Miriam qué intensidad y formato encaja mejor. ${bookingLine}`;
-  }
-
-  if (normalized.includes("transform")) {
-    return `Para procesos de cambio personal, el ritual de autor Para Cómo Te Transformas es la opción más orientada al acompañamiento corporal profundo y al bienestar integral. ${bookingLine}`;
-  }
-
-  if (normalized.includes("terapia") || normalized.includes("tratamiento") || normalized.includes("servicio")) {
-    return `Puedo orientarte por familias: faciales, masajes y terapias manuales, tratamientos corporales, belleza de la mirada, rituales del mundo o rituales de autor. Si me dices qué buscas, afino la recomendación. ${bookingLine}`;
-  }
-
-  return demoReplies[Math.floor(Math.random() * demoReplies.length)];
-}
-
-async function getAssistantReply(text) {
-  const chatApiUrl = getChatApiUrl();
-
-  if (!chatApiUrl) {
-    return getDemoReply(text);
-  }
-
-  const response = await fetch(chatApiUrl, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ messages: chatHistory }),
-  });
-  const data = await response.json().catch(() => ({}));
-
-  if (!response.ok || !data.reply) {
-    throw new Error(data.error || "Assistant unavailable");
-  }
-
-  return data.reply;
-}
-
-async function handleSubmit(event) {
-  event.preventDefault();
-  const text = inputEl.value.trim();
-
-  if (!text) {
-    return;
-  }
-
-  addMessage({ author: "user", label: "Tú", text });
-  chatHistory.push({ role: "user", content: text });
-  inputEl.value = "";
-  inputEl.style.height = "auto";
-  const typingMessage = addTypingMessage();
-
-  try {
-    const reply = await getAssistantReply(text);
-    typingMessage.remove();
-    addMessage({
-      author: "bot",
-      label: "Asistente Miriam",
-      text: reply,
-    });
-    chatHistory.push({ role: "assistant", content: reply });
-  } catch {
-    typingMessage.remove();
-    addMessage({
-      author: "bot",
-      label: "Asistente Miriam",
-      text:
-        "No se pudo conectar con el asistente. Puedes intentarlo en unos segundos o reservar directamente por WhatsApp al +34 646 410 037.",
-    });
-  }
-}
-
-function usePrompt(event) {
-  inputEl.value = event.currentTarget.dataset.prompt;
-  inputEl.focus();
-  inputEl.style.height = `${inputEl.scrollHeight}px`;
-}
-
-function resizeInput() {
-  inputEl.style.height = "auto";
-  inputEl.style.height = `${inputEl.scrollHeight}px`;
-}
 
 function renderServiceDetail(serviceKey) {
   const family = serviceCatalog[serviceKey];
@@ -960,13 +803,6 @@ function clearSelectedDay() {
   renderAvailabilityEditor();
 }
 
-initialMessages.forEach((message) => {
-  addMessage(message);
-  chatHistory.push({ role: "assistant", content: message.text });
-});
-formEl.addEventListener("submit", handleSubmit);
-inputEl.addEventListener("input", resizeInput);
-promptButtons.forEach((button) => button.addEventListener("click", usePrompt));
 serviceTabs.forEach((tab) => tab.addEventListener("click", selectServiceTab));
 serviceDetailEl?.addEventListener("click", handleServiceDetailClick);
 closeModalButtons.forEach((button) => button.addEventListener("click", closeServiceModal));

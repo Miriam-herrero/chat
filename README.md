@@ -1,61 +1,21 @@
-# Visión Interna Chat
+# Miriam Herrero Sánchez | Servicios y reservas
 
-Boceto inicial de una web pública de chatbot vinculada al universo visual y terapéutico de
-Miriam Herrero Sanchez.
+Web pública para consultar la carta de tratamientos de Miriam Herrero Sánchez y agendar citas.
 
-## Estado actual
+## Funcionalidades
 
-- Web estática lista para abrir en navegador.
-- Interfaz de chat en modo demo.
-- Estructura compatible con GitHub Pages.
-- Sin conexión real a OpenAI todavía.
+- Catálogo interactivo organizado por familias de servicios.
+- Fichas con descripción, duración, precio y acceso directo a reserva.
+- Calendario personalizado con selección de fecha y hora.
+- Formulario de reserva con servicio, nombre, teléfono, email y comentarios.
+- Panel privado para gestionar disponibilidad y citas.
 
-## Arquitectura prevista
+## Publicación
 
-La web puede alojarse como estática, pero la conexión con OpenAI debe hacerse desde un backend
-separado para proteger la API key. Este proyecto incluye una función compatible con Vercel en
-`api/chat.js`.
-
-```text
-Frontend
-  index.html
-  styles.css
-  script.js
-      |
-      v
-Vercel
-  /api/chat
-  OPENAI_API_KEY en variable de entorno
-      |
-      v
-OpenAI API
-```
-
-## Conectar OpenAI con Vercel
-
-1. Crear una cuenta/proyecto en Vercel.
-2. Importar este repositorio de GitHub.
-3. En Vercel, añadir la variable de entorno:
-
-```text
-OPENAI_API_KEY=tu_api_key
-```
-
-Opcionalmente:
-
-```text
-OPENAI_MODEL=gpt-5-mini
-```
-
-4. Desplegar el proyecto.
-5. Si se usa GitHub Pages para el frontend, configurar la URL del backend Vercel en el frontend
-   con `window.CHAT_API_URL`. Si se usa Vercel para servir toda la web, el frontend llamará
-   automáticamente a `/api/chat`.
+La web está preparada para publicarse como sitio estático mediante GitHub Pages o Vercel.
 
 ## Próximos pasos
 
-1. Ajustar diseño, textos y nombre final del espacio.
-2. Crear repositorio de GitHub.
-3. Publicar el frontend en GitHub Pages.
-4. Crear despliegue en Vercel para el backend seguro.
-5. Añadir `OPENAI_API_KEY` como secreto en Vercel.
+- Sustituir el almacenamiento local del calendario por una base de datos compartida.
+- Proteger el acceso privado desde un backend seguro.
+- Añadir confirmaciones de reserva por email o WhatsApp.

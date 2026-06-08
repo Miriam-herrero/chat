@@ -49,15 +49,6 @@ entorno de privacidad, calma y atención a medida.
 - Para Cómo Te Ves: 110 min, 95 EUR.
 - Para Cómo Te Transformas: 110 min, 100 EUR.
 
-## Rol del asistente
-
-El asistente digital acoge con empatía, tono humano y neutral en cuanto a género. Ayuda a
-identificar qué tratamiento, terapia, taller o recurso puede encajar con la necesidad de la persona
-usuaria y deriva hacia contacto o reserva.
-
-No hace diagnósticos médicos ni psicológicos, no promete resultados y no sustituye una sesión
-profesional.
-
 ## Reservas
 
 - Teléfono y WhatsApp: +34 646 410 037.
